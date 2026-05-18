@@ -59,7 +59,7 @@ export default function App() {
           alignItems: "center",
         }}
       >
-        <h1>🍕 Pizzaria Vitória</h1>
+        <h1>🍕 Império Pizza </h1>
 
         <div>
           🛒 {carrinho.length}
@@ -80,6 +80,23 @@ export default function App() {
         <p style={{ fontSize: window.innerWidth < 768 ? "16px" : "22px", }}>
           Massa crocante e muito recheio.
         </p>
+
+        <a
+         href="#bebidas"
+         style={{
+         display: "inline-block",
+         marginTop: "20px",
+         backgroundColor: "orange",
+         color: "black",
+         padding: "12px 20px",
+         borderRadius: "10px",
+         textDecoration: "none",
+         fontWeight: "bold",
+         }}
+>
+        Ver Bebidas 🥤
+</a>
+
       </section>
 
       {/* CARDÁPIO */}
@@ -164,6 +181,59 @@ export default function App() {
           ))}
         </div>
       </section>
+
+           <section
+  id="bebidas"
+  style={{
+    padding: "40px 20px",
+    backgroundColor: "#181818",
+  }}
+>
+  <h2
+    style={{
+      textAlign: "center",
+      color: "cyan",
+      fontSize: "35px",
+    }}
+  >
+    🥤 Bebidas
+  </h2>
+
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(2,1fr)",
+      gap: "15px",
+      marginTop: "30px",
+    }}
+  >
+    <div
+      style={{
+        backgroundColor: "#222",
+        padding: "20px",
+        borderRadius: "15px",
+        textAlign: "center",
+      }}
+    >
+      <h3>Coca-Cola</h3>
+      <p>2 Litros</p>
+      <strong>R$ 12,00</strong>
+    </div>
+
+    <div
+      style={{
+        backgroundColor: "#222",
+        padding: "20px",
+        borderRadius: "15px",
+        textAlign: "center",
+      }}
+    >
+      <h3>Guaraná</h3>
+      <p>2 Litros</p>
+      <strong>R$ 10,00</strong>
+    </div>
+  </div>
+</section>
 
       {/* CARRINHO */}
       <section
