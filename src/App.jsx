@@ -201,7 +201,7 @@ export default function App() {
             >
               Total: R$ {total.toFixed(2)}
               <a
-  href={`https://wa.me/5581999999999?text=Olá,%20quero%20finalizar%20meu%20pedido`}
+  href={`https://wa.me/5581995353406?text=Olá,%20quero%20finalizar%20meu%20pedido`}
   target="_blank"
   rel="noreferrer"
   style={{
