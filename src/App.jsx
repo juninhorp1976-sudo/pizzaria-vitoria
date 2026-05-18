@@ -73,7 +73,7 @@ export default function App() {
           A Melhor Pizza da Cidade
         </h2>
 
-        <p style={{ fontSize: "22px" }}>
+        <p style={{ fontSize: window.innerWidth < 768 ? "16px" : "22px", }}>
           Massa crocante e muito recheio.
         </p>
       </section>
@@ -83,7 +83,7 @@ export default function App() {
         <h2
           style={{
             textAlign: "center",
-            fontSize: "40px",
+            fontSize: window.innerWidth < 768 ? "18px" : "26px",
             color: "yellow",
           }}
         >
@@ -93,9 +93,12 @@ export default function App() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))",
-            gap: "30px",
-            marginTop: "40px",
+            gridTemplateColumns:
+  window.innerWidth < 768
+    ? "repeat(2, 1fr)"
+    : "repeat(auto-fit,minmax(250px,1fr))", 
+            gap: "10px",
+            marginTop: "20px",
           }}
         >
           {pizzas.map((pizza, index) => (
@@ -112,18 +115,18 @@ export default function App() {
   alt={pizza.nome}
   style={{
     width: "100%",
-    height: "220px",
+    height: window.innerWidth < 768 ? "110px" : "250px",
     objectFit: "cover",
     borderRadius: "20px 20px 0 0",
   }}
 />
 
-              <div style={{ padding: "20px" }}>
-                <h3 style={{ fontSize: "30px", color: "orange" }}>
+              <div style={{ padding: "10px" }}>
+                <h3 style={{ fontSize: "14px", color: "orange" }}>
                   {pizza.nome}
                 </h3>
 
-                <p style={{ fontSize: "25px", color: "yellow" }}>
+                <p style={{ fontSize: "15px", color: "yellow" }}>
                   R$ {pizza.preco.toFixed(2)}
                 </p>
 
