@@ -5,29 +5,33 @@ export default function App() {
 
   const pizzas = [
     {
-      nome: "Calabresa",
-      preco: 39.9,
-      imagem:
-        "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop",
-    },
+  nome: "Calabresa",
+  preco: 39.9,
+  descricao: "Pizza com calabresa, queijo e cebola.",
+  imagem:
+    "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop",
+},
     {
-      nome: "Frango com Catupiry",
-      preco: 44.9,
-      imagem:
-        "https://images.unsplash.com/photo-1594007654729-407eedc4be65?q=80&w=1200&auto=format&fit=crop",
-    },
+  nome: "Frango com catupiry",
+  preco: 39.9,
+  descricao: "Pizza com calabresa, queijo e cebola.",
+  imagem:
+    "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop",
+},
     {
-      nome: "Portuguesa",
-      preco: 49.9,
-      imagem:
-        "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1200&auto=format&fit=crop",
-    },
+  nome: "portuguesa",
+  preco: 39.9,
+  descricao: "Pizza com calabresa, queijo e cebola.",
+  imagem:
+    "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop",
+},
     {
-      nome: "Hambúrguer",
-      preco: 15.9,
-      imagem:
-        "https://moinhoglobo.com.br/wp-content/uploads/2019/05/16-hamburguer.jpeg",
-    },
+  nome: "hamburguer",
+  preco: 39.9,
+  descricao: "Pizza com calabresa, queijo e cebola.",
+  imagem:
+    "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop",
+},
   ];
 
   const adicionarCarrinho = (pizza) => {
@@ -125,6 +129,16 @@ export default function App() {
                 <h3 style={{ fontSize: "14px", color: "orange" }}>
                   {pizza.nome}
                 </h3>
+              <p
+                style={{
+                color: "#ccc",
+                fontSize: "13px",
+                marginTop: "5px",
+              }}
+              >
+              {pizza.descricao}
+              </p>
+                
 
                 <p style={{ fontSize: "15px", color: "yellow" }}>
                   R$ {pizza.preco.toFixed(2)}
