@@ -81,22 +81,6 @@ export default function App() {
           Massa crocante e muito recheio.
         </p>
 
-        <a
-         href="#bebidas"
-         style={{
-         display: "inline-block",
-         marginTop: "20px",
-         backgroundColor: "orange",
-         color: "black",
-         padding: "12px 20px",
-         borderRadius: "10px",
-         textDecoration: "none",
-         fontWeight: "bold",
-         }}
->
-        Ver Bebidas 🥤
-</a>
-
       </section>
 
       {/* CARDÁPIO */}
@@ -184,6 +168,115 @@ export default function App() {
         </div>
       </section>
 
+      <section
+       id="bebidas"
+      >
+           <section
+  id="bebidas"
+  style={{
+    padding: "40px 20px",
+    backgroundColor: "#181818",
+  }}
+>
+  <h2
+    style={{
+      textAlign: "center",
+      color: "cyan",
+      fontSize: "35px",
+    }}
+  >
+    🥤 Bebidas
+  </h2>
+
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(2,1fr)",
+      gap: "15px",
+      marginTop: "30px",
+    }}
+  >
+    <div
+      style={{
+        backgroundColor: "#222",
+        padding: "15px",
+        borderRadius: "15px",
+        textAlign: "center",
+      }}
+    >
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlmNG2wHsXYUzPFqN9Ko3nA7fpSYHxxLWryg&s"
+        alt="Coca-Cola"
+        style={{
+          width: "100%",
+          height: "120px",
+          objectFit: "cover",
+          borderRadius: "10px",
+        }}
+      />
+
+      <h3>Coca-Cola</h3>
+      <p>2 Litros</p>
+      <strong>R$ 12,00</strong>
+      <button
+  style={{
+    width: "100%",
+    marginTop: "10px",
+    padding: "10px",
+    backgroundColor: "red ",
+    color: "white",
+    border: "none",
+    borderRadius: "10px",
+    cursor: "pointer",
+    fontWeight: "bold",
+  }}
+>
+  Comprar
+</button>
+
+    </div>
+
+    <div
+      style={{
+        backgroundColor: "#222",
+        padding: "15px",
+        borderRadius: "15px",
+        textAlign: "center",
+      }}
+    >
+      <img
+        src="https://cerejakitfestas.com.br/wp-content/uploads/2024/06/Refrigerante-Guarana-Antarctica-2l.jpg"
+        alt="Guaraná"
+        style={{
+          width: "100%",
+          height: "120px",
+          objectFit: "cover",
+          borderRadius: "10px",
+        }}
+      />
+
+      <h3>Guaraná</h3>
+      <p>2 Litros</p>
+      <strong>R$ 10,00</strong>
+      <button
+  style={{
+    width: "100%",
+    marginTop: "10px",
+    padding: "10px",
+    backgroundColor: "red",
+    color: "white",
+    border: "none",
+    borderRadius: "10px",
+    cursor: "pointer",
+    fontWeight: "bold",
+  }}
+>
+  Comprar
+</button>
+    </div>
+  </div>
+</section>
+        </section>
 
 
       {/* CARRINHO */}
@@ -200,6 +293,8 @@ export default function App() {
             fontSize: "40px",
           }}
         >
+          
+          
           🛒 Carrinho
         </h2>
 
