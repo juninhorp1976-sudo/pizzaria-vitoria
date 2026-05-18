@@ -106,6 +106,8 @@ export default function App() {
             textAlign: "center",
             fontSize: window.innerWidth < 768 ? "18px" : "26px",
             color: "yellow",
+            imagem:
+    "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop",
           }}
         >
           Cardápio
@@ -187,6 +189,8 @@ export default function App() {
   style={{
     padding: "40px 20px",
     backgroundColor: "#181818",
+    imagem:
+    "https://images.tcdn.com.br/img/img_prod/1082210/coca_coca_2l_pack_8_1_1_2380938e61e93125191ebc11919fc1d7.png",
   }}
 >
   <h2
@@ -194,6 +198,8 @@ export default function App() {
       textAlign: "center",
       color: "cyan",
       fontSize: "35px",
+      imagem:
+    "https://i.pinimg.com/736x/43/a5/e0/43a5e054595bee9a2ee05a20f68c281a.jpg",
     }}
   >
     🥤 Bebidas
