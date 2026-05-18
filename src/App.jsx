@@ -201,7 +201,14 @@ export default function App() {
             >
               Total: R$ {total.toFixed(2)}
               <a
-  href={`https://wa.me/5581995353406?text=Olá,%20quero%20finalizar%20meu%20pedido`}
+  href={`https://wa.me/5581995353406?text=${encodeURIComponent(
+    `🍕 NOVO PEDIDO\n\n${carrinho
+      .map(
+        (item, index) =>
+          `${index + 1}️⃣ ${item.nome} - R$ ${item.preco.toFixed(2)}`
+      )
+      .join("\n")}\n\n💰 Total: R$ ${total.toFixed(2)}`
+  )}`}
   target="_blank"
   rel="noreferrer"
   style={{
@@ -210,11 +217,11 @@ export default function App() {
     marginTop: "20px",
     backgroundColor: "green",
     color: "white",
-    padding: "20px",
-    borderRadius: "15px",
+    padding: "15px",
+    borderRadius: "12px",
     textAlign: "center",
     textDecoration: "none",
-    fontSize: "25px",
+    fontSize: "18px",
     fontWeight: "bold",
   }}
 >
