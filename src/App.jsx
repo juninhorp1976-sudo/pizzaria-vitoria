@@ -189,8 +189,7 @@ export default function App() {
   style={{
     padding: "40px 20px",
     backgroundColor: "#181818",
-    imagem:
-    "https://images.tcdn.com.br/img/img_prod/1082210/coca_coca_2l_pack_8_1_1_2380938e61e93125191ebc11919fc1d7.png",
+    
   }}
 >
   <h2
@@ -198,8 +197,7 @@ export default function App() {
       textAlign: "center",
       color: "cyan",
       fontSize: "35px",
-      imagem:
-    "https://i.pinimg.com/736x/43/a5/e0/43a5e054595bee9a2ee05a20f68c281a.jpg",
+
     }}
   >
     🥤 Bebidas
@@ -224,7 +222,10 @@ export default function App() {
       <h3>Coca-Cola</h3>
       <p>2 Litros</p>
       <strong>R$ 12,00</strong>
+      imagem:
+    "https://images.tcdn.com.br/img/img_prod/1082210/coca_coca_2l_pack_8_1_1_2380938e61e93125191ebc11919fc1d7.png",
     </div>
+    
 
     <div
       style={{
@@ -237,6 +238,8 @@ export default function App() {
       <h3>Guaraná</h3>
       <p>2 Litros</p>
       <strong>R$ 10,00</strong>
+      imagem:
+    "https://i.pinimg.com/736x/43/a5/e0/43a5e054595bee9a2ee05a20f68c281a.jpg",
     </div>
   </div>
 </section>
