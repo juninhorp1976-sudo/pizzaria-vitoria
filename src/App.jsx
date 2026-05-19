@@ -197,83 +197,96 @@ export default function App() {
     }}
   >
     <div
-      style={{
-        backgroundColor: "#222",
-        padding: "15px",
-        borderRadius: "15px",
-        textAlign: "center",
-      }}
-    >
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlmNG2wHsXYUzPFqN9Ko3nA7fpSYHxxLWryg&s"
-        alt="Coca-Cola"
-        style={{
-          width: "100%",
-          height: "120px",
-          objectFit: "cover",
-          borderRadius: "10px",
-        }}
-      />
-
-      <h3>Coca-Cola</h3>
-      <p>2 Litros</p>
-      <strong>R$ 12,00</strong>
-      <button
   style={{
-    width: "100%",
-    marginTop: "10px",
-    padding: "10px",
-    backgroundColor: "red ",
-    color: "white",
-    border: "none",
-    borderRadius: "10px",
-    cursor: "pointer",
-    fontWeight: "bold",
+    backgroundColor: "#222",
+    padding: "15px",
+    borderRadius: "15px",
+    textAlign: "center",
   }}
 >
-  Comprar
-</button>
+  <img
+    src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=1200&auto=format&fit=crop"
+    alt="Coca-Cola"
+    style={{
+      width: "100%",
+      height: "250px",
+      objectFit: "cover",
+      borderRadius: "10px",
+    }}
+  />
 
-    </div>
+  <h3>Coca-Cola</h3>
+  <p>2 Litros</p>
+  <strong>R$ 12,00</strong>
+
+  <button
+    onClick={() =>
+      adicionarCarrinho({
+        nome: "Coca-Cola 2L",
+        preco: 12.0,
+      })
+    }
+    style={{
+      width: "100%",
+      marginTop: "10px",
+      padding: "10px",
+      backgroundColor: "green",
+      color: "white",
+      border: "none",
+      borderRadius: "10px",
+      cursor: "pointer",
+      fontWeight: "bold",
+    }}
+  >
+    Comprar
+  </button>
+</div>
 
     <div
-      style={{
-        backgroundColor: "#222",
-        padding: "15px",
-        borderRadius: "15px",
-        textAlign: "center",
-      }}
-    >
-      <img
-        src="https://cerejakitfestas.com.br/wp-content/uploads/2024/06/Refrigerante-Guarana-Antarctica-2l.jpg"
-        alt="Guaraná"
-        style={{
-          width: "100%",
-          height: "120px",
-          objectFit: "cover",
-          borderRadius: "10px",
-        }}
-      />
-
-      <h3>Guaraná</h3>
-      <p>2 Litros</p>
-      <strong>R$ 10,00</strong>
-      <button
   style={{
-    width: "100%",
-    marginTop: "10px",
-    padding: "10px",
-    backgroundColor: "red",
-    color: "white",
-    border: "none",
-    borderRadius: "10px",
-    cursor: "pointer",
-    fontWeight: "bold",
+    backgroundColor: "#222",
+    padding: "15px",
+    borderRadius: "15px",
+    textAlign: "center",
   }}
 >
-  Comprar
-</button>
-    </div>
+  <img
+    src="https://images.unsplash.com/photo-1554866585-cd94860890b7?q=80&w=1200&auto=format&fit=crop"
+    alt="Guaraná"
+    style={{
+      width: "100%",
+      height: "250px",
+      objectFit: "cover",
+      borderRadius: "10px",
+    }}
+  />
+
+  <h3>Guaraná</h3>
+  <p>2 Litros</p>
+  <strong>R$ 10,00</strong>
+
+  <button
+    onClick={() =>
+      adicionarCarrinho({
+        nome: "Guaraná 2L",
+        preco: 10.0,
+      })
+    }
+    style={{
+      width: "100%",
+      marginTop: "10px",
+      padding: "10px",
+      backgroundColor: "green",
+      color: "white",
+      border: "none",
+      borderRadius: "10px",
+      cursor: "pointer",
+      fontWeight: "bold",
+    }}
+  >
+    Comprar
+  </button>
+</div>
   </div>
 </section>
         </section>
