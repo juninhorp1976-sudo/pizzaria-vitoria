@@ -339,19 +339,19 @@ export default function App() {
   <span>R$ {item.preco.toFixed(2)}</span>
 
   <button
-    onClick={() => removerCarrinho(index)}
-    style={{
-      marginLeft: "10px",
-      backgroundColor: "red",
-      color: "white",
-      border: "none",
-      borderRadius: "8px",
-      padding: "6px 10px",
-      cursor: "pointer",
-    }}
-  >
-    remover
-  </button>
+  onClick={() => removerCarrinho(index)}
+  style={{
+    marginLeft: "10px",
+    backgroundColor: "red",
+    color: "white",
+    border: "none",
+    borderRadius: "8px",
+    padding: "6px 10px",
+    cursor: "pointer",
+  }}
+>
+  remover
+</button>
 </div>
               </div>
             ))}
