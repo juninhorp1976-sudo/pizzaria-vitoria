@@ -38,6 +38,10 @@ export default function App() {
     setCarrinho([...carrinho, pizza]);
   };
 
+  const removerCarrinho = (indexRemover) => {
+  setCarrinho(carrinho.filter((_, index) => index !== indexRemover));
+};
+
   const total = carrinho.reduce((total, item) => total + item.preco, 0);
 
   return (
@@ -331,7 +335,24 @@ export default function App() {
               >
                 <span>{item.nome}</span>
 
-                <span>R$ {item.preco.toFixed(2)}</span>
+                <div>
+  <span>R$ {item.preco.toFixed(2)}</span>
+
+  <button
+    onClick={() => removerCarrinho(index)}
+    style={{
+      marginLeft: "10px",
+      backgroundColor: "red",
+      color: "white",
+      border: "none",
+      borderRadius: "8px",
+      padding: "6px 10px",
+      cursor: "pointer",
+    }}
+  >
+    remover
+  </button>
+</div>
               </div>
             ))}
 
