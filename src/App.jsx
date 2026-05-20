@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export default function App() {
   const [carrinho, setCarrinho] = useState([]);
+  const [abrirCarrinho, setAbrirCarrinho] = useState(false);
 
   const pizzas = [
     {
@@ -65,9 +66,18 @@ export default function App() {
       >
         <h1>🍕 Império Pizza </h1>
 
-        <div>
-          🛒 {carrinho.length}
-        </div>
+        <button
+           onClick={() => setAbrirCarrinho(!abrirCarrinho)}
+           style={{
+           backgroundColor: "transparent",
+           border: "none",
+           color: "white",
+           fontSize: "24px",
+           cursor: "pointer",
+          }}
+>
+         🛒 {carrinho.length}
+       </button>
       </header>
 
       {/* BANNER */}
@@ -296,105 +306,84 @@ export default function App() {
         </section>
 
 
-      {/* CARRINHO */}
-      <section
-        style={{
-          padding: "40px",
-          backgroundColor: "#1a1a1a",
-        }}
-      >
-        <h2
-          style={{
-            textAlign: "center",
-            color: "yellow",
-            fontSize: "40px",
-          }}
-        >
-          
-          
-          🛒 Carrinho
-        </h2>
+      {abrirCarrinho && (
+  <section
+    style={{
+      position: "fixed",
+      top: "80px",
+      right: "20px",
+      width: "320px",
+      maxHeight: "400px",
+      overflowY: "auto",
+      backgroundColor: "#1a1a1a",
+      padding: "20px",
+      borderRadius: "15px",
+      zIndex: "999",
+      boxShadow: "0 0 20px rgba(0,0,0,0.5)",
+    }}
+  >
+    <h2
+      style={{
+        textAlign: "center",
+        color: "yellow",
+      }}
+    >
+      🛒 Carrinho
+    </h2>
 
-        {carrinho.length === 0 ? (
-          <p style={{ textAlign: "center" }}>
-            Seu carrinho está vazio.
-          </p>
-        ) : (
-          <div style={{ maxWidth: "700px", margin: "0 auto" }}>
-            {carrinho.map((item, index) => (
-              <div
-                key={index}
-                style={{
-                  backgroundColor: "#222",
-                  padding: "20px",
-                  marginTop: "15px",
-                  borderRadius: "10px",
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                <span>{item.nome}</span>
+    {carrinho.length === 0 ? (
+      <p style={{ textAlign: "center" }}>
+        Seu carrinho está vazio.
+      </p>
+    ) : (
+      <>
+        {carrinho.map((item, index) => (
+          <div
+            key={index}
+            style={{
+              backgroundColor: "#222",
+              padding: "10px",
+              marginTop: "10px",
+              borderRadius: "10px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <div>
+              <p>{item.nome}</p>
+              <small>R$ {item.preco.toFixed(2)}</small>
+            </div>
 
-                <div>
-  <span>R$ {item.preco.toFixed(2)}</span>
-
-  <button
-  onClick={() => removerCarrinho(index)}
-  style={{
-    marginLeft: "10px",
-    backgroundColor: "red",
-    color: "white",
-    border: "none",
-    borderRadius: "8px",
-    padding: "6px 10px",
-    cursor: "pointer",
-  }}
->
-  remover
-</button>
-</div>
-              </div>
-            ))}
-
-            <h3
+            <button
+              onClick={() => removerCarrinho(index)}
               style={{
-                textAlign: "right",
-                marginTop: "20px",
-                color: "yellow",
+                backgroundColor: "red",
+                color: "white",
+                border: "none",
+                borderRadius: "8px",
+                padding: "5px 8px",
+                cursor: "pointer",
               }}
             >
-              Total: R$ {total.toFixed(2)}
-              <a
-  href={`https://wa.me/5581995353406?text=${encodeURIComponent(
-    `🍕 NOVO PEDIDO\n\n${carrinho
-      .map(
-        (item, index) =>
-          `${index + 1}️⃣ ${item.nome} - R$ ${item.preco.toFixed(2)}`
-      )
-      .join("\n")}\n\n💰 Total: R$ ${total.toFixed(2)}`
-  )}`}
-  target="_blank"
-  rel="noreferrer"
-  style={{
-    display: "block",
-    width: "100%",
-    marginTop: "20px",
-    backgroundColor: "green",
-    color: "white",
-    padding: "15px",
-    borderRadius: "12px",
-    textAlign: "center",
-    textDecoration: "none",
-    fontSize: "18px",
-    fontWeight: "bold",
-  }}
->
-  Finalizar Pedido
-</a>
-            </h3>
+              remover
+            </button>
           </div>
-        )}
-      </section>
+        ))}
+
+        <h3
+          style={{
+            textAlign: "center",
+            marginTop: "20px",
+            color: "yellow",
+          }}
+        >
+          Total: R$ {total.toFixed(2)}
+        </h3>
+      </>
+    )}
+  </section>
+)}
     </div>
   );
 }
