@@ -284,22 +284,24 @@ ${carrinho
           A Melhor Pizza da Cidade
         </h2>
         <p>Massa crocante e muito recheio.</p>
-        <div
-  style={{
-    backgroundColor: "red",
-    color: "white",
-    padding: "15px",
-    borderRadius: "10px",
-    marginTop: "20px",
-    fontWeight: "bold",
-    maxWidth: "400px",
-    marginInline: "auto",
-  }}
->
-  🚫 Estamos fechados no momento.
-  <br />
-  ⏰ Voltamos às 17h.
-</div>
+        {new Date().getHours() < 17 && (
+  <div
+    style={{
+      backgroundColor: "red",
+      color: "white",
+      padding: "15px",
+      borderRadius: "10px",
+      marginTop: "20px",
+      fontWeight: "bold",
+      maxWidth: "400px",
+      marginInline: "auto",
+    }}
+  >
+    🚫 Estamos fechados no momento.
+    <br />
+    ⏰ Voltamos às 17h.
+  </div>
+)}
       </section>
 
       <section style={{ padding: "20px" }}>
