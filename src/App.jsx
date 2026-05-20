@@ -127,8 +127,9 @@ ${carrinho
           style={{
             position: "fixed",
             top: "80px",
-            right: window.innerWidth < 768 ? "5%" : "20px",
-            width: window.innerWidth < 768 ? "90%" : "320px",
+            right: window.innerWidth < 768 ? "5vw" : "20px",
+            width: window.innerWidth < 768 ? "90vw" : "320px",
+            boxSizing: "border-box",
             maxHeight: "450px",
             overflowY: "auto",
             backgroundColor: "#1a1a1a",
