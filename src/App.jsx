@@ -3,6 +3,9 @@ import { useState } from "react";
 export default function App() {
   const [carrinho, setCarrinho] = useState([]);
   const [abrirCarrinho, setAbrirCarrinho] = useState(false);
+  const [nomeCliente, setNomeCliente] = useState("");
+const [endereco, setEndereco] = useState("");
+const [pagamento, setPagamento] = useState("");
 
   const produtos = [
     {
@@ -63,13 +66,22 @@ export default function App() {
   const total = carrinho.reduce((total, item) => total + item.preco, 0);
 
   const mensagemWhatsApp = encodeURIComponent(
-    `🍕 NOVO PEDIDO\n\n${carrinho
-      .map(
-        (item, index) =>
-          `${index + 1}. ${item.nome} - R$ ${item.preco.toFixed(2)}`
-      )
-      .join("\n")}\n\n💰 Total: R$ ${total.toFixed(2)}`
-  );
+  `🍕 NOVO PEDIDO
+
+👤 Nome: ${nomeCliente}
+📍 Endereço: ${endereco}
+💳 Pagamento: ${pagamento}
+
+🛒 Pedido:
+${carrinho
+  .map(
+    (item, index) =>
+      `${index + 1}. ${item.nome} - R$ ${item.preco.toFixed(2)}`
+  )
+  .join("\n")}
+
+💰 Total: R$ ${total.toFixed(2)}`
+);
 
   return (
     <div
@@ -93,20 +105,20 @@ export default function App() {
         <h1>🍕 Império Pizza</h1>
 
         <button
-          onClick={(e) => {
-            e.stopPropagation();
-            setAbrirCarrinho(true);
-          }}
-          style={{
-            background: "transparent",
-            border: "none",
-            color: "white",
-            fontSize: "24px",
-            cursor: "pointer",
-          }}
-        >
-          🛒 {carrinho.length}
-        </button>
+  onClick={(e) => {
+    e.stopPropagation();
+    setAbrirCarrinho(true);
+  }}
+  style={{
+    background: "transparent",
+    border: "none",
+    color: "white",
+    fontSize: "24px",
+    cursor: "pointer",
+  }}
+>
+  🛒 {carrinho.length}
+</button>
       </header>
 
       {abrirCarrinho && (
@@ -114,9 +126,9 @@ export default function App() {
           onClick={(e) => e.stopPropagation()}
           style={{
             position: "fixed",
-            top: "90px",
-            right: "20px",
-            width: "320px",
+            top: "80px",
+            right: window.innerWidth < 768 ? "5%" : "20px",
+            width: window.innerWidth < 768 ? "90%" : "320px",
             maxHeight: "450px",
             overflowY: "auto",
             backgroundColor: "#1a1a1a",
@@ -179,6 +191,126 @@ export default function App() {
               <h3 style={{ color: "yellow" }}>
                 Total: R$ {total.toFixed(2)}
               </h3>
+
+               <input
+  type="text"
+  placeholder="Seu nome"
+  value={nomeCliente}
+  onChange={(e) => setNomeCliente(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "10px",
+    marginTop: "10px",
+    borderRadius: "8px",
+    border: "none",
+    boxSizing: "border-box",
+  }}
+/>
+
+<input
+  type="text"
+  placeholder="Seu endereço"
+  value={endereco}
+  onChange={(e) => setEndereco(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "10px",
+    marginTop: "10px",
+    borderRadius: "8px",
+    border: "none",
+    boxSizing: "border-box",
+  }}
+/>
+
+<select
+  value={pagamento}
+  onChange={(e) => setPagamento(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "10px",
+    marginTop: "10px",
+    borderRadius: "8px",
+    border: "none",
+    boxSizing: "border-box",
+  }}
+>
+  <option value="">Forma de pagamento</option>
+  <option value="Pix">Pix</option>
+  <option value="Cartão">Cartão</option>
+  <option value="Dinheiro">Dinheiro</option>
+</select>
+  type="text"
+  placeholder="Seu nome"
+  value={nomeCliente}
+  onChange={(e) => setNomeCliente(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "10px",
+    marginTop: "10px",
+    borderRadius: "8px",
+    border: "none",
+    boxSizing: "border-box",
+  }}
+
+<input
+  type="text"
+  placeholder="Seu endereço"
+  value={endereco}
+  onChange={(e) => setEndereco(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "10px",
+    marginTop: "10px",
+    borderRadius: "8px",
+    border: "none",
+    boxSizing: "border-box",
+  }}
+/>
+
+<select
+  value={pagamento}
+  onChange={(e) => setPagamento(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "10px",
+    marginTop: "10px",
+    borderRadius: "8px",
+    border: "none",
+    boxSizing: "border-box",
+  }}
+>
+  <option value="">Forma de pagamento</option>
+  <option value="Pix">Pix</option>
+  <option value="Cartão">Cartão</option>
+  <option value="Dinheiro">Dinheiro</option>
+</select>
+
+               <input
+  type="text"
+  placeholder="Seu nome"
+  value={nomeCliente}
+  onChange={(e) => setNomeCliente(e.target.value)}
+  style={{ width: "100%", padding: "10px", marginTop: "10px" }}
+/>
+
+<input
+  type="text"
+  placeholder="Seu endereço"
+  value={endereco}
+  onChange={(e) => setEndereco(e.target.value)}
+  style={{ width: "100%", padding: "10px", marginTop: "10px" }}
+/>
+
+<select
+  value={pagamento}
+  onChange={(e) => setPagamento(e.target.value)}
+  style={{ width: "100%", padding: "10px", marginTop: "10px" }}
+>
+  <option value="">Forma de pagamento</option>
+  <option value="Pix">Pix</option>
+  <option value="Cartão">Cartão</option>
+  <option value="Dinheiro">Dinheiro</option>
+</select>
 
               <a
                 href={`https://wa.me/5581995353406?text=${mensagemWhatsApp}`}
