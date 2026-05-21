@@ -271,6 +271,53 @@ ${carrinho
         >
           Total: R$ {total.toFixed(2)}
         </h3>
+        <input
+  type="text"
+  placeholder="Seu nome"
+  value={nomeCliente}
+  onChange={(e) => setNomeCliente(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "10px",
+    marginTop: "10px",
+    borderRadius: "8px",
+    border: "none",
+    boxSizing: "border-box",
+  }}
+/>
+
+<input
+  type="text"
+  placeholder="Seu endereço"
+  value={endereco}
+  onChange={(e) => setEndereco(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "10px",
+    marginTop: "10px",
+    borderRadius: "8px",
+    border: "none",
+    boxSizing: "border-box",
+  }}
+/>
+
+<select
+  value={pagamento}
+  onChange={(e) => setPagamento(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "10px",
+    marginTop: "10px",
+    borderRadius: "8px",
+    border: "none",
+    boxSizing: "border-box",
+  }}
+>
+  <option value="">Forma de pagamento</option>
+  <option value="Pix">Pix</option>
+  <option value="Cartão">Cartão</option>
+  <option value="Dinheiro">Dinheiro</option>
+</select>
 
         {/* Seu nome
             Seu endereço
