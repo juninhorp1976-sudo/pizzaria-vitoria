@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function App() {
   const [carrinho, setCarrinho] = useState([]);
   const [abrirCarrinho, setAbrirCarrinho] = useState(false);
-  const senhaAdmin = "123456";
+  const senhaAdmin = "1976";
   const [abrirAdmin, setAbrirAdmin] = useState(false);
   const [nomeCliente, setNomeCliente] = useState("");
   const [endereco, setEndereco] = useState("");
@@ -105,7 +105,6 @@ ${carrinho
   style={{
     display: "flex",
     alignItems: "center",
-    gap: "10px",
   }}
 >
   <button
@@ -135,7 +134,16 @@ ${carrinho
     ⚙️
   </button>
 
-  <h1>🍕 Império Pizza</h1>
+  <h1
+  style={{
+    margin: 0,
+    marginLeft: "10px",
+    fontSize: "32px",
+    fontWeight: "bold",
+  }}
+>
+  🍕 Império Pizza
+</h1>
 </div>
 
         <button
