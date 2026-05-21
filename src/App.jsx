@@ -339,13 +339,22 @@ ${carrinho
 
         <a
   onClick={(e) => {
-    if (
-      nomeCliente.trim() === "" ||
-      endereco.trim() === "" ||
-      pagamento.trim() === ""
-    ) {
+    if (nomeCliente.trim() === "") {
       e.preventDefault();
-      alert("Preencha nome, endereço e forma de pagamento!");
+      alert("Digite seu nome para finalizar o pedido!");
+      return;
+    }
+
+    if (endereco.trim() === "") {
+      e.preventDefault();
+      alert("Digite seu endereço para finalizar o pedido!");
+      return;
+    }
+
+    if (pagamento.trim() === "") {
+      e.preventDefault();
+      alert("Escolha a forma de pagamento!");
+      return;
     }
   }}
   href={`https://wa.me/5581995353406?text=${mensagemWhatsApp}`}
