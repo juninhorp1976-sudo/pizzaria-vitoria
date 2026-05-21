@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function App() {
   const [carrinho, setCarrinho] = useState([]);
   const [abrirCarrinho, setAbrirCarrinho] = useState(false);
+  const [cargo, setCargo] = useState("Membro");
   const senhaAdmin = "1976";
   const [abrirAdmin, setAbrirAdmin] = useState(false);
   const [nomeCliente, setNomeCliente] = useState("");
@@ -253,6 +254,15 @@ ${carrinho
                 Total: R$ {total.toFixed(2)}
               </h3>
 
+              {cargo !== "Membro" && (
+  <>
+    <input placeholder="Nome do produto" />
+    <input placeholder="Preço" />
+    <input placeholder="URL da imagem" />
+    <button>Adicionar Produto</button>
+  </>
+)}
+
               <input
                 type="text"
                 placeholder="Seu nome"
@@ -266,6 +276,7 @@ ${carrinho
                   border: "none",
                   boxSizing: "border-box",
                 }}
+                
               />
 
               <input
@@ -344,7 +355,7 @@ ${carrinho
   >
     🚫 Estamos fechados no momento.
     <br />
-    ⏰ Voltamos às 17h.
+    ⏰ Voltamos às 16:50h.
   </div>
 )}
       </section>
@@ -505,3 +516,25 @@ ${carrinho
       </div>
   );
 }
+<select
+  value={cargo}
+  onChange={(e) => setCargo(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "10px",
+    marginTop: "10px",
+    borderRadius: "8px",
+  }}
+>
+  <option>Dono</option>
+  <option>Gerente</option>
+  <option>Funcionário</option>
+</select>
+{cargo === "Dono" && (
+  <button>Excluir Produto</button>
+)}
+{(cargo === "Dono" || cargo === "Gerente") && (
+  <button>Adicionar Produto</button>
+)}
+
+
