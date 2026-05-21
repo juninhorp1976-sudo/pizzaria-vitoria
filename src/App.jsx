@@ -442,26 +442,28 @@ ${carrinho
                 </strong>
 
                 <button
-                  onClick={() => adicionarCarrinho(produto)}
-                  style={{
-                    width: "100%",
-                    marginTop: "10px",
-                    padding: "10px",
-                    backgroundColor: "red",
-                    color: "white",
-                    border: "none",
-                    borderRadius: "10px",
-                    cursor: "pointer",
-                  }}
-                >
-                  Comprar
-                  {cargo === "Dono" && (
+  onClick={() => {
+    adicionarCarrinho(produto);
+    alert("✅ Adicionado ao carrinho!");
+  }}
+  style={{
+    width: "100%",
+    marginTop: "10px",
+    padding: "10px",
+    backgroundColor: "red",
+    color: "white",
+    border: "none",
+    borderRadius: "10px",
+    cursor: "pointer",
+  }}
+>
+  Comprar
+</button>
+
+{cargo === "Dono" && (
   <button
     onClick={() => {
-      const novosProdutos = produtos.filter(
-        (_, i) => i !== index
-      );
-
+      const novosProdutos = produtos.filter((_, i) => i !== index);
       setProdutos(novosProdutos);
     }}
     style={{
@@ -478,7 +480,7 @@ ${carrinho
     🗑️ Remover Produto
   </button>
 )}
-                </button>
+                
               </div>
             </div>
           ))}
