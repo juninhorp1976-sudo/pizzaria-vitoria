@@ -3,6 +3,9 @@ import { useState } from "react";
 export default function App() {
   const [carrinho, setCarrinho] = useState([]);
   const [abrirCarrinho, setAbrirCarrinho] = useState(false);
+  const [novoNome, setNovoNome] = useState("");
+  const [novoPreco, setNovoPreco] = useState("");
+  const [novaImagem, setNovaImagem] = useState("");
   const [logadoAdmin, setLogadoAdmin] = useState(false);
   const [senhaDigitada, setSenhaDigitada] = useState("");
   const [cargo, setCargo] = useState("Membro");
@@ -241,35 +244,37 @@ ${carrinho
 
 
               <input
-                type="text"
-                placeholder="Seu nome"
-                value={nomeCliente}
-                onChange={(e) => setNomeCliente(e.target.value)}
-                style={{
-                  width: "100%",
-                  padding: "10px",
-                  marginTop: "10px",
-                  borderRadius: "8px",
-                  border: "none",
-                  boxSizing: "border-box",
-                }}
-                
-              />
+  placeholder="Nome do produto"
+  value={novoNome}
+  onChange={(e) => setNovoNome(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "12px",
+    marginTop: "10px",
+  }}
+/>
 
-              <input
-                type="text"
-                placeholder="Seu endereço"
-                value={endereco}
-                onChange={(e) => setEndereco(e.target.value)}
-                style={{
-                  width: "100%",
-                  padding: "10px",
-                  marginTop: "10px",
-                  borderRadius: "8px",
-                  border: "none",
-                  boxSizing: "border-box",
-                }}
-              />
+<input
+  placeholder="Preço"
+  value={novoPreco}
+  onChange={(e) => setNovoPreco(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "12px",
+    marginTop: "10px",
+  }}
+/>
+
+<input
+  placeholder="URL da imagem"
+  value={novaImagem}
+  onChange={(e) => setNovaImagem(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "12px",
+    marginTop: "10px",
+  }}
+/>
 
               <select
                 value={pagamento}
@@ -545,18 +550,28 @@ ${carrinho
         <input placeholder="URL da imagem" style={{ width: "100%", padding: "12px", marginTop: "10px" }} />
 
         <button
-          style={{
-            width: "100%",
-            padding: "14px",
-            marginTop: "15px",
-            background: "linear-gradient(to right, orange, yellow)",
-            border: "none",
-            borderRadius: "12px",
-            fontWeight: "bold",
-          }}
-        >
-          ➕ Adicionar Produto
-        </button>
+  onClick={() => {
+    produtos.push({
+      nome: novoNome,
+      preco: parseFloat(novoPreco),
+      descricao: "Novo produto",
+      imagem: novaImagem,
+    });
+
+    alert("Produto adicionado!");
+  }}
+  style={{
+    width: "100%",
+    padding: "14px",
+    marginTop: "15px",
+    background: "linear-gradient(to right, orange, yellow)",
+    border: "none",
+    borderRadius: "12px",
+    fontWeight: "bold",
+  }}
+>
+  ➕ Adicionar Produto
+</button>
 
         <button
           onClick={() => setLogadoAdmin(false)}
