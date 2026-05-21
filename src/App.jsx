@@ -93,81 +93,91 @@ ${carrinho
       }}
     >
       <header
-        style={{
-          background: "linear-gradient(to right, red, orange)",
-          padding: "20px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <h1>🍕 Império Pizza</h1> 
+  style={{
+    background: "linear-gradient(to right, red, orange)",
+    padding: "20px",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  }}
+>
   <div
     style={{
       display: "flex",
       alignItems: "center",
     }}
   >
+    <button
+      onClick={(e) => {
+        e.stopPropagation();
+
+        const senha = prompt("Digite a senha admin");
+
+        if (senha === senhaAdmin) {
+          setAbrirAdmin(!abrirAdmin);
+        } else {
+          alert("Senha incorreta");
+        }
+      }}
+      style={{
+        width: "45px",
+        height: "45px",
+        borderRadius: "50%",
+        backgroundColor: "orange",
+        color: "black",
+        border: "none",
+        fontSize: "22px",
+        cursor: "pointer",
+        fontWeight: "bold",
+      }}
+    >
+      ⚙️
+    </button>
+
+    <h1
+      style={{
+        margin: 0,
+        marginLeft: "10px",
+        fontSize: "32px",
+        fontWeight: "bold",
+      }}
+    >
+      🍕 Império Pizza
+    </h1>
+  </div>
+
   <button
     onClick={(e) => {
       e.stopPropagation();
-
-      const senha = prompt("Digite a senha admin");
-
-      if (senha === senhaAdmin) {
-        setAbrirAdmin(!abrirAdmin);
-      } else {
-        alert("Senha incorreta");
-      }
+      setAbrirCarrinho(!abrirCarrinho);
     }}
     style={{
-      width: "45px",
-      height: "45px",
-      borderRadius: "50%",
-      backgroundColor: "orange",
-      color: "black",
+      background: "transparent",
       border: "none",
-      fontSize: "22px",
+      color: "white",
+      fontSize: "28px",
       cursor: "pointer",
-      fontWeight: "bold",
+      position: "relative",
     }}
   >
-    ⚙️
+    🛒
+    <span
+      style={{
+        position: "absolute",
+        top: "-8px",
+        right: "-12px",
+        backgroundColor: "red",
+        color: "white",
+        borderRadius: "50%",
+        padding: "2px 7px",
+        fontSize: "12px",
+        fontWeight: "bold",
+      }}
+    >
+      {carrinho.length}
+    </span>
   </button>
-</div>
-
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            setAbrirCarrinho(!abrirCarrinho);
-          }}
-          style={{
-            background: "transparent",
-            border: "none",
-            color: "white",
-            fontSize: "28px",
-            cursor: "pointer",
-            position: "relative",
-          }}
-        >
-          🛒
-          <span
-            style={{
-              position: "absolute",
-              top: "-8px",
-              right: "-12px",
-              backgroundColor: "red",
-              color: "white",
-              borderRadius: "50%",
-              padding: "2px 7px",
-              fontSize: "12px",
-              fontWeight: "bold",
-            }}
-          >
-            {carrinho.length}
-          </span>
-        </button>
-      </header>
+</header>
 
       {abrirCarrinho && (
         <section
