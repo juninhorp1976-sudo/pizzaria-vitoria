@@ -176,201 +176,129 @@ ${carrinho
   </button>
 </header>
 
-      {abrirCarrinho && (
-        <section
-          onClick={(e) => e.stopPropagation()}
-          style={{
-            position: "fixed",
-            top: "80px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "90vw",
-            maxWidth: "360px",
-            maxHeight: "450px",
-            overflowY: "auto",
-            backgroundColor: "#1a1a1a",
-            padding: "20px",
-            borderRadius: "15px",
-            zIndex: 9999,
-            boxSizing: "border-box",
-            boxShadow: "0 0 20px black",
-          }}
-        >
-          <button
-            onClick={() => setAbrirCarrinho(false)}
+          {abrirCarrinho && (
+  <section
+    onClick={(e) => e.stopPropagation()}
+    style={{
+      position: "fixed",
+      top: "80px",
+      left: "50%",
+      transform: "translateX(-50%)",
+      width: "92vw",
+      maxWidth: "390px",
+      maxHeight: "520px",
+      overflowY: "auto",
+      background: "linear-gradient(180deg, #2b2b2b, #111)",
+      padding: "20px",
+      borderRadius: "25px",
+      zIndex: 9999,
+      boxSizing: "border-box",
+      boxShadow: "0 0 30px rgba(0,0,0,0.8)",
+      border: "1px solid orange",
+    }}
+  >
+    <button
+      onClick={() => setAbrirCarrinho(false)}
+      style={{
+        float: "right",
+        backgroundColor: "red",
+        color: "white",
+        border: "none",
+        borderRadius: "50%",
+        width: "32px",
+        height: "32px",
+        cursor: "pointer",
+        fontWeight: "bold",
+      }}
+    >
+      X
+    </button>
+
+    <h2 style={{ color: "orange", marginTop: 0 }}>
+      🛒 Seu Carrinho
+    </h2>
+
+    {carrinho.length === 0 ? (
+      <p style={{ color: "#ccc" }}>Seu carrinho está vazio.</p>
+    ) : (
+      <>
+        {carrinho.map((item, index) => (
+          <div
+            key={index}
             style={{
-              float: "right",
-              background: "red",
-              color: "white",
-              border: "none",
-              borderRadius: "8px",
-              padding: "5px 8px",
-              cursor: "pointer",
+              backgroundColor: "#1f1f1f",
+              padding: "12px",
+              marginTop: "12px",
+              borderRadius: "15px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              border: "1px solid #333",
             }}
           >
-            X
-          </button>
+            <div>
+              <strong style={{ color: "white" }}>{item.nome}</strong>
+              <p style={{ color: "yellow", margin: "5px 0" }}>
+                R$ {item.preco.toFixed(2)}
+              </p>
+            </div>
 
-          <h2 style={{ color: "yellow" }}>Carrinho</h2>
+            <button
+              onClick={() => removerCarrinho(index)}
+              style={{
+                backgroundColor: "#ff3333",
+                color: "white",
+                border: "none",
+                borderRadius: "10px",
+                padding: "8px 10px",
+                cursor: "pointer",
+                fontWeight: "bold",
+              }}
+            >
+              remover
+            </button>
+          </div>
+        ))}
 
-          {carrinho.length === 0 ? (
-            <p>Seu carrinho está vazio.</p>
-          ) : (
-            <>
-              {carrinho.map((item, index) => (
-                <div
-                  key={index}
-                  style={{
-                    backgroundColor: "#222",
-                    padding: "10px",
-                    marginTop: "10px",
-                    borderRadius: "10px",
-                  }}
-                >
-                  <p>{item.nome}</p>
-                  <p>R$ {item.preco.toFixed(2)}</p>
+        <h3
+          style={{
+            color: "yellow",
+            textAlign: "center",
+            backgroundColor: "#222",
+            padding: "12px",
+            borderRadius: "15px",
+          }}
+        >
+          Total: R$ {total.toFixed(2)}
+        </h3>
 
-                  <button
-                    onClick={() => removerCarrinho(index)}
-                    style={{
-                      backgroundColor: "red",
-                      color: "white",
-                      border: "none",
-                      borderRadius: "8px",
-                      padding: "6px 10px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    remover
-                  </button>
-                </div>
-              ))}
+        {/* Seu nome
+            Seu endereço
+            Forma de pagamento */}
 
-              <h3 style={{ color: "yellow" }}>
-                Total: R$ {total.toFixed(2)}
-              </h3>
-
-              <input
-  type="text"
-  placeholder="Seu nome"
-  value={nomeCliente}
-  onChange={(e) => setNomeCliente(e.target.value)}
-  style={{
-    width: "100%",
-    padding: "10px",
-    marginTop: "10px",
-    borderRadius: "8px",
-    border: "none",
-    boxSizing: "border-box",
-  }}
-/>
-
-  <input
-  type="text"
-  placeholder="Seu endereço"
-  value={endereco}
-  onChange={(e) => setEndereco(e.target.value)}
-  style={{
-    width: "100%",
-    padding: "10px",
-    marginTop: "10px",
-    borderRadius: "8px",
-    border: "none",
-    boxSizing: "border-box",
-  }}
-/>
-
-<select
-  value={pagamento}
-  onChange={(e) => setPagamento(e.target.value)}
-  style={{
-    width: "100%",
-    padding: "10px",
-    marginTop: "10px",
-    borderRadius: "8px",
-    border: "none",
-    boxSizing: "border-box",
-  }}
->
-  <option value="">Forma de pagamento</option>
-  <option value="Pix">Pix</option>
-  <option value="Cartão">Cartão</option>
-  <option value="Dinheiro">Dinheiro</option>
-</select>
- 
-  <input
-  placeholder="Nome do produto"
-  value={novoNome}
-  onChange={(e) => setNovoNome(e.target.value)}
-  style={{
-    width: "100%",
-    padding: "12px",
-    marginTop: "10px",
-  }}
-/>
-
-<input
-  placeholder="Preço"
-  value={novoPreco}
-  onChange={(e) => setNovoPreco(e.target.value)}
-  style={{
-    width: "100%",
-    padding: "12px",
-    marginTop: "10px",
-  }}
-/>
-
-<input
-  placeholder="URL da imagem"
-  value={novaImagem}
-  onChange={(e) => setNovaImagem(e.target.value)}
-  style={{
-    width: "100%",
-    padding: "12px",
-    marginTop: "10px",
-  }}
-/>
-
-              <select
-                value={pagamento}
-                onChange={(e) => setPagamento(e.target.value)}
-                style={{
-                  width: "100%",
-                  padding: "10px",
-                  marginTop: "10px",
-                  borderRadius: "8px",
-                  border: "none",
-                  boxSizing: "border-box",
-                }}
-              >
-                <option value="">Forma de pagamento</option>
-                <option value="Pix">Pix</option>
-                <option value="Cartão">Cartão</option>
-                <option value="Dinheiro">Dinheiro</option>
-              </select>
-
-              <a
-                href={`https://wa.me/5581995353406?text=${mensagemWhatsApp}`}
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  display: "block",
-                  marginTop: "15px",
-                  backgroundColor: "green",
-                  color: "white",
-                  padding: "15px",
-                  borderRadius: "10px",
-                  textAlign: "center",
-                  textDecoration: "none",
-                  fontWeight: "bold",
-                }}
-              >
-                Finalizar Pedido
-              </a>
-            </>
-          )}
-        </section>
-      )}
+        <a
+          href={`https://wa.me/5581995353406?text=${mensagemWhatsApp}`}
+          target="_blank"
+          rel="noreferrer"
+          style={{
+            display: "block",
+            marginTop: "15px",
+            background: "linear-gradient(to right, green, limegreen)",
+            color: "white",
+            padding: "15px",
+            borderRadius: "15px",
+            textAlign: "center",
+            textDecoration: "none",
+            fontWeight: "bold",
+            fontSize: "18px",
+          }}
+        >
+          ✅ Finalizar Pedido
+        </a>
+      </>
+    )}
+  </section>
+)}
 
       <section style={{ textAlign: "center", padding: "80px 20px" }}>
         <h2 style={{ fontSize: "40px", color: "yellow" }}>
@@ -572,25 +500,27 @@ ${carrinho
     </button>
 
     {!logadoAdmin ? (
-      <>
-        <h2 style={{ color: "orange" }}>🔐 Login Admin</h2>
-        <p style={{ color: "#ccc" }}>Digite a senha para acessar o painel.</p>
+  <>
+    <h2 style={{ color: "orange" }}>🔐 Login Admin</h2>
 
-        <input
-          type="password"
-          placeholder="Senha admin"
-          value={senhaDigitada}
-          onChange={(e) => setSenhaDigitada(e.target.value)}
-          style={{
-            width: "100%",
-            padding: "14px",
-            marginTop: "15px",
-            borderRadius: "12px",
-            border: "none",
-            boxSizing: "border-box",
-          }}
-        />
+    <p style={{ color: "#ccc" }}>
+      Digite a senha para acessar o painel.
+    </p>
 
+    <input
+      type="password"
+      placeholder="Senha admin"
+      value={senhaDigitada}
+      onChange={(e) => setSenhaDigitada(e.target.value)}
+      style={{
+        width: "100%",
+        padding: "14px",
+        marginTop: "15px",
+        borderRadius: "12px",
+        border: "none",
+        boxSizing: "border-box",
+      }}
+    />
         <button
           onClick={() => {
             if (senhaDigitada === senhaAdmin) {
@@ -640,7 +570,7 @@ ${carrinho
     setNovaImagem("");
 
     alert("Produto adicionado!");
-  }}
+  }}  
 >
   ➕ Adicionar Produto
 </button>
