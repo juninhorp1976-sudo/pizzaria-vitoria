@@ -247,10 +247,10 @@ ${carrinho
               ))}
 
               <h3 style={{ color: "yellow" }}>
-  Total: R$ {total.toFixed(2)}
-</h3>
+                Total: R$ {total.toFixed(2)}
+              </h3>
 
-<input
+              <input
   type="text"
   placeholder="Seu nome"
   value={nomeCliente}
@@ -265,7 +265,7 @@ ${carrinho
   }}
 />
 
-<input
+  <input
   type="text"
   placeholder="Seu endereço"
   value={endereco}
@@ -297,6 +297,57 @@ ${carrinho
   <option value="Cartão">Cartão</option>
   <option value="Dinheiro">Dinheiro</option>
 </select>
+ 
+  <input
+  placeholder="Nome do produto"
+  value={novoNome}
+  onChange={(e) => setNovoNome(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "12px",
+    marginTop: "10px",
+  }}
+/>
+
+<input
+  placeholder="Preço"
+  value={novoPreco}
+  onChange={(e) => setNovoPreco(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "12px",
+    marginTop: "10px",
+  }}
+/>
+
+<input
+  placeholder="URL da imagem"
+  value={novaImagem}
+  onChange={(e) => setNovaImagem(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "12px",
+    marginTop: "10px",
+  }}
+/>
+
+              <select
+                value={pagamento}
+                onChange={(e) => setPagamento(e.target.value)}
+                style={{
+                  width: "100%",
+                  padding: "10px",
+                  marginTop: "10px",
+                  borderRadius: "8px",
+                  border: "none",
+                  boxSizing: "border-box",
+                }}
+              >
+                <option value="">Forma de pagamento</option>
+                <option value="Pix">Pix</option>
+                <option value="Cartão">Cartão</option>
+                <option value="Dinheiro">Dinheiro</option>
+              </select>
 
               <a
                 href={`https://wa.me/5581995353406?text=${mensagemWhatsApp}`}
