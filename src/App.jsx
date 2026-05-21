@@ -484,54 +484,44 @@ ${carrinho
             zIndex: 99999,
           }}
         >
-          <h2 style={{ color: "orange" }}>⚙️ Painel Admin</h2><h2 style={{ color: "orange" }}>⚙️ Painel Admin</h2>
+          <h2 style={{ color: "orange" }}>⚙️ Painel Admin</h2>
 
 <p style={{ color: "white" }}>
   Cargo atual: {cargo}
 </p>
 
-{cargo !== "Membro" && (
-  <>
-    <input
-      placeholder="Nome do produto"
-      style={{
-        width: "100%",
-        padding: "10px",
-        marginTop: "10px",
-      }}
-    />
+<select
+  value={cargo}
+  onChange={(e) => setCargo(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "10px",
+    marginTop: "10px",
+    borderRadius: "8px",
+  }}
+>
+  <option>Membro</option>
+  <option>Dono</option>
+  <option>Gerente</option>
+  <option>Funcionário</option>
+</select>
 
-    <input
-      placeholder="Preço"
-      style={{
-        width: "100%",
-        padding: "10px",
-        marginTop: "10px",
-      }}
-    />
-
-    <input
-      placeholder="URL da imagem"
-      style={{
-        width: "100%",
-        padding: "10px",
-        marginTop: "10px",
-      }}
-    />
-
-    <button
-      style={{
-        width: "100%",
-        padding: "12px",
-        marginTop: "15px",
-        backgroundColor: "orange",
-        border: "none",
-      }}
-    >
-      Adicionar Produto
-    </button>
-  </>
+{cargo === "Dono" && (
+  <button
+    style={{
+      width: "100%",
+      padding: "10px",
+      marginTop: "10px",
+      backgroundColor: "red",
+      color: "white",
+      border: "none",
+      borderRadius: "8px",
+    }}
+  >
+    Excluir Produto
+  </button>
 )}
+
 
 
           <input placeholder="Nome do produto" style={{ width: "100%", padding: "10px", marginTop: "10px" }} />
@@ -557,25 +547,6 @@ ${carrinho
       </div>
   );
 }
-<select
-  value={cargo}
-  onChange={(e) => setCargo(e.target.value)}
-  style={{
-    width: "100%",
-    padding: "10px",
-    marginTop: "10px",
-    borderRadius: "8px",
-  }}
->
-  <option>Dono</option>
-  <option>Gerente</option>
-  <option>Funcionário</option>
-</select>
-{cargo === "Dono" && (
-  <button>Excluir Produto</button>
-)}
-{(cargo === "Dono" || cargo === "Gerente") && (
-  <button>Adicionar Produto</button>
-)}
+
 
 
