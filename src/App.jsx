@@ -15,7 +15,7 @@ export default function App() {
   const [endereco, setEndereco] = useState("");
   const [pagamento, setPagamento] = useState("");
 
-  const produtos = [
+  const [produtos, setProdutos] = useState([
     {
       nome: "Calabresa",
       preco: 39.9,
@@ -44,7 +44,7 @@ export default function App() {
       imagem:
         "https://moinhoglobo.com.br/wp-content/uploads/2019/05/16-hamburguer.jpeg",
     },
-  ];
+  ]);
 
   const bebidas = [
     {
@@ -551,23 +551,20 @@ ${carrinho
 
         <button
   onClick={() => {
-    produtos.push({
+    const novoProduto = {
       nome: novoNome,
       preco: parseFloat(novoPreco),
       descricao: "Novo produto",
       imagem: novaImagem,
-    });
+    };
+
+    setProdutos([...produtos, novoProduto]);
+
+    setNovoNome("");
+    setNovoPreco("");
+    setNovaImagem("");
 
     alert("Produto adicionado!");
-  }}
-  style={{
-    width: "100%",
-    padding: "14px",
-    marginTop: "15px",
-    background: "linear-gradient(to right, orange, yellow)",
-    border: "none",
-    borderRadius: "12px",
-    fontWeight: "bold",
   }}
 >
   ➕ Adicionar Produto
