@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function App() {
   const [carrinho, setCarrinho] = useState([]);
   const [abrirCarrinho, setAbrirCarrinho] = useState(false);
+  const [abrirAdmin, setAbrirAdmin] = useState(false);
   const [nomeCliente, setNomeCliente] = useState("");
   const [endereco, setEndereco] = useState("");
   const [pagamento, setPagamento] = useState("");
@@ -420,7 +421,8 @@ ${carrinho
     </div>
   );
 }
-<button
+                  <button
+  onClick={() => setAbrirAdmin(!abrirAdmin)}
   style={{
     position: "fixed",
     bottom: "20px",
@@ -436,3 +438,63 @@ ${carrinho
 >
   ⚙️ Admin
 </button>
+
+{abrirAdmin && (
+  <div
+    style={{
+      position: "fixed",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      backgroundColor: "#222",
+      padding: "20px",
+      borderRadius: "15px",
+      width: "300px",
+      zIndex: "99999",
+    }}
+  >
+    <h2 style={{ color: "orange" }}>⚙️ Painel Admin</h2>
+
+    <input
+      placeholder="Nome do produto"
+      style={{
+        width: "100%",
+        padding: "10px",
+        marginTop: "10px",
+      }}
+    />
+
+    <input
+      placeholder="Preço"
+      style={{
+        width: "100%",
+        padding: "10px",
+        marginTop: "10px",
+      }}
+    />
+
+    <input
+      placeholder="URL da imagem"
+      style={{
+        width: "100%",
+        padding: "10px",
+        marginTop: "10px",
+      }}
+    />
+
+    <button
+      style={{
+        width: "100%",
+        padding: "12px",
+        marginTop: "15px",
+        backgroundColor: "orange",
+        border: "none",
+        color: "black",
+        fontWeight: "bold",
+        cursor: "pointer",
+      }}
+    >
+      Adicionar Produto
+    </button>
+  </div>
+)}
