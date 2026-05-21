@@ -392,6 +392,29 @@ ${carrinho
                   }}
                 >
                   Comprar
+                  {cargo === "Dono" && (
+  <button
+    onClick={() => {
+      const novosProdutos = produtos.filter(
+        (_, i) => i !== index
+      );
+
+      setProdutos(novosProdutos);
+    }}
+    style={{
+      width: "100%",
+      marginTop: "8px",
+      padding: "10px",
+      backgroundColor: "black",
+      color: "white",
+      border: "1px solid red",
+      borderRadius: "10px",
+      cursor: "pointer",
+    }}
+  >
+    🗑️ Remover Produto
+  </button>
+)}
                 </button>
               </div>
             </div>
