@@ -254,14 +254,7 @@ ${carrinho
                 Total: R$ {total.toFixed(2)}
               </h3>
 
-              {cargo !== "Membro" && (
-  <>
-    <input placeholder="Nome do produto" />
-    <input placeholder="Preço" />
-    <input placeholder="URL da imagem" />
-    <button>Adicionar Produto</button>
-  </>
-)}
+
 
               <input
                 type="text"
@@ -491,7 +484,55 @@ ${carrinho
             zIndex: 99999,
           }}
         >
-          <h2 style={{ color: "orange" }}>⚙️ Painel Admin</h2>
+          <h2 style={{ color: "orange" }}>⚙️ Painel Admin</h2><h2 style={{ color: "orange" }}>⚙️ Painel Admin</h2>
+
+<p style={{ color: "white" }}>
+  Cargo atual: {cargo}
+</p>
+
+{cargo !== "Membro" && (
+  <>
+    <input
+      placeholder="Nome do produto"
+      style={{
+        width: "100%",
+        padding: "10px",
+        marginTop: "10px",
+      }}
+    />
+
+    <input
+      placeholder="Preço"
+      style={{
+        width: "100%",
+        padding: "10px",
+        marginTop: "10px",
+      }}
+    />
+
+    <input
+      placeholder="URL da imagem"
+      style={{
+        width: "100%",
+        padding: "10px",
+        marginTop: "10px",
+      }}
+    />
+
+    <button
+      style={{
+        width: "100%",
+        padding: "12px",
+        marginTop: "15px",
+        backgroundColor: "orange",
+        border: "none",
+      }}
+    >
+      Adicionar Produto
+    </button>
+  </>
+)}
+
 
           <input placeholder="Nome do produto" style={{ width: "100%", padding: "10px", marginTop: "10px" }} />
           <input placeholder="Preço" style={{ width: "100%", padding: "10px", marginTop: "10px" }} />
