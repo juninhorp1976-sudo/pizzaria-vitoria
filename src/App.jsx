@@ -420,3 +420,19 @@ ${carrinho
     </div>
   );
 }
+<button
+  style={{
+    position: "fixed",
+    bottom: "20px",
+    left: "20px",
+    backgroundColor: "black",
+    color: "white",
+    border: "2px solid orange",
+    padding: "12px",
+    borderRadius: "10px",
+    cursor: "pointer",
+    zIndex: "9999",
+  }}
+>
+  ⚙️ Admin
+</button>
