@@ -271,16 +271,16 @@ ${carrinho
         >
           Total: R$ {total.toFixed(2)}
         </h3>
-        <input
+<input
   type="text"
   placeholder="Seu nome"
   value={nomeCliente}
   onChange={(e) => setNomeCliente(e.target.value)}
   style={{
     width: "100%",
-    padding: "10px",
+    padding: "12px",
     marginTop: "10px",
-    borderRadius: "8px",
+    borderRadius: "10px",
     border: "none",
     boxSizing: "border-box",
   }}
@@ -293,9 +293,9 @@ ${carrinho
   onChange={(e) => setEndereco(e.target.value)}
   style={{
     width: "100%",
-    padding: "10px",
+    padding: "12px",
     marginTop: "10px",
-    borderRadius: "8px",
+    borderRadius: "10px",
     border: "none",
     boxSizing: "border-box",
   }}
@@ -306,9 +306,9 @@ ${carrinho
   onChange={(e) => setPagamento(e.target.value)}
   style={{
     width: "100%",
-    padding: "10px",
+    padding: "12px",
     marginTop: "10px",
-    borderRadius: "8px",
+    borderRadius: "10px",
     border: "none",
     boxSizing: "border-box",
   }}
@@ -342,7 +342,7 @@ ${carrinho
         >
           ✅ Finalizar Pedido
         </a>
-      </>
+      </> 
     )}
   </section>
 )}
