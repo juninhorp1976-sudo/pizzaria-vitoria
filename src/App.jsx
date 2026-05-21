@@ -223,41 +223,55 @@ ${carrinho
     ) : (
       <>
         {carrinho.map((item, index) => (
-          <div
-            key={index}
-            style={{
-              backgroundColor: "#1f1f1f",
-              padding: "12px",
-              marginTop: "12px",
-              borderRadius: "15px",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              border: "1px solid #333",
-            }}
-          >
-            <div>
-              <strong style={{ color: "white" }}>{item.nome}</strong>
-              <p style={{ color: "yellow", margin: "5px 0" }}>
-                R$ {item.preco.toFixed(2)}
-              </p>
-            </div>
+         <div
+  key={index}
+  style={{
+    backgroundColor: "#1f1f1f",
+    padding: "12px",
+    marginTop: "12px",
+    borderRadius: "15px",
+    display: "flex",
+    alignItems: "center",
+    gap: "12px",
+    border: "1px solid #333",
+  }}
+>
+  <img
+    src={item.imagem}
+    alt={item.nome}
+    style={{
+      width: "70px",
+      height: "70px",
+      objectFit: "cover",
+      borderRadius: "12px",
+    }}
+  />
 
-            <button
-              onClick={() => removerCarrinho(index)}
-              style={{
-                backgroundColor: "#ff3333",
-                color: "white",
-                border: "none",
-                borderRadius: "10px",
-                padding: "8px 10px",
-                cursor: "pointer",
-                fontWeight: "bold",
-              }}
-            >
-              remover
-            </button>
-          </div>
+  <div style={{ flex: 1 }}>
+    <strong style={{ color: "white" }}>
+      {item.nome}
+    </strong>
+
+    <p style={{ color: "yellow", margin: "5px 0" }}>
+      R$ {item.preco.toFixed(2)}
+    </p>
+
+    <button
+      onClick={() => removerCarrinho(index)}
+      style={{
+        backgroundColor: "#ff3333",
+        color: "white",
+        border: "none",
+        borderRadius: "10px",
+        padding: "8px 10px",
+        cursor: "pointer",
+        fontWeight: "bold",
+      }}
+    >
+      remover
+    </button>
+  </div>
+</div>
         ))}
 
         <h3
@@ -324,24 +338,34 @@ ${carrinho
             Forma de pagamento */}
 
         <a
-          href={`https://wa.me/5581995353406?text=${mensagemWhatsApp}`}
-          target="_blank"
-          rel="noreferrer"
-          style={{
-            display: "block",
-            marginTop: "15px",
-            background: "linear-gradient(to right, green, limegreen)",
-            color: "white",
-            padding: "15px",
-            borderRadius: "15px",
-            textAlign: "center",
-            textDecoration: "none",
-            fontWeight: "bold",
-            fontSize: "18px",
-          }}
-        >
-          ✅ Finalizar Pedido
-        </a>
+  onClick={(e) => {
+    if (
+      nomeCliente.trim() === "" ||
+      endereco.trim() === "" ||
+      pagamento.trim() === ""
+    ) {
+      e.preventDefault();
+      alert("Preencha nome, endereço e forma de pagamento!");
+    }
+  }}
+  href={`https://wa.me/5581995353406?text=${mensagemWhatsApp}`}
+  target="_blank"
+  rel="noreferrer"
+  style={{
+    display: "block",
+    marginTop: "15px",
+    background: "linear-gradient(to right, green, limegreen)",
+    color: "white",
+    padding: "15px",
+    borderRadius: "15px",
+    textAlign: "center",
+    textDecoration: "none",
+    fontWeight: "bold",
+    fontSize: "18px",
+  }}
+>
+  ✅ Finalizar Pedido
+</a>
       </> 
     )}
   </section>
