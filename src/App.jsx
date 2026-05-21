@@ -101,12 +101,13 @@ ${carrinho
           alignItems: "center",
         }}
       >
-        <h1>🍕 Império Pizza</h1><div
-  style={{
-    display: "flex",
-    alignItems: "center",
-  }}
->
+        <h1>🍕 Império Pizza</h1> 
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+    }}
+  >
   <button
     onClick={(e) => {
       e.stopPropagation();
@@ -133,17 +134,6 @@ ${carrinho
   >
     ⚙️
   </button>
-
-  <h1
-  style={{
-    margin: 0,
-    marginLeft: "10px",
-    fontSize: "32px",
-    fontWeight: "bold",
-  }}
->
-  🍕 Império Pizza
-</h1>
 </div>
 
         <button
