@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function App() {
   const [carrinho, setCarrinho] = useState([]);
   const [abrirCarrinho, setAbrirCarrinho] = useState(false);
+  const [mensagemCarrinho, setMensagemCarrinho] = useState("");
   const [novoNome, setNovoNome] = useState("");
   const [novoPreco, setNovoPreco] = useState("");
   const [novaImagem, setNovaImagem] = useState("");
@@ -444,7 +445,11 @@ ${carrinho
                 <button
   onClick={() => {
     adicionarCarrinho(produto);
-    alert("✅ Adicionado ao carrinho!");
+    setMensagemCarrinho("✅ Produto adicionado ao carrinho!");
+
+setTimeout(() => {
+  setMensagemCarrinho("");
+}, 2000);
   }}
   style={{
     width: "100%",
@@ -479,6 +484,24 @@ ${carrinho
   >
     🗑️ Remover Produto
   </button>
+)}
+{mensagemCarrinho && (
+  <div
+    style={{
+      position: "fixed",
+      bottom: "25px",
+      right: "25px",
+      background: "linear-gradient(to right, #16a34a, #22c55e)",
+      color: "white",
+      padding: "15px 20px",
+      borderRadius: "15px",
+      fontWeight: "bold",
+      boxShadow: "0 0 20px rgba(0,0,0,0.5)",
+      zIndex: 999999,
+    }}
+  >
+    {mensagemCarrinho}
+  </div>
 )}
                 
               </div>
