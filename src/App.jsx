@@ -118,6 +118,15 @@ ${carrinho
     e.stopPropagation();
     setAbrirAdmin(true);
   }}
+  style={{
+    width: "45px",
+    height: "45px",
+    borderRadius: "50%",
+    backgroundColor: "transparent",
+    color: "transparent",
+    border: "none",
+    cursor: "pointer",
+  }}
 >
   ⚙️
 </button>
