@@ -420,25 +420,30 @@ ${carrinho
             </section>
 
             <button
-        onClick={(e) => {
-          e.stopPropagation();
-          setAbrirAdmin(!abrirAdmin);
-        }}
-        style={{
-          position: "fixed",
-          bottom: "20px",
-          left: "20px",
-          backgroundColor: "black",
-          color: "white",
-          border: "2px solid orange",
-          padding: "12px",
-          borderRadius: "10px",
-          cursor: "pointer",
-          zIndex: 9999,
-        }}
-      >
-        ⚙️ Admin
-      </button>
+  onClick={(e) => {
+    e.stopPropagation();
+    setAbrirAdmin(!abrirAdmin);
+  }}
+  style={{
+    position: "fixed",
+    bottom: "20px",
+    left: "20px",
+    width: "55px",
+    height: "55px",
+    borderRadius: "50%",
+    backgroundColor: "orange",
+    color: "black",
+    border: "none",
+    fontSize: "24px",
+    fontWeight: "bold",
+    cursor: "pointer",
+    zIndex: 999999999,
+    boxShadow: "0 0 15px black",
+  }}
+>
+  ⚙️
+</button>
+
 
       {abrirAdmin && (
         <div
