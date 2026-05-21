@@ -3,6 +3,8 @@ import { useState } from "react";
 export default function App() {
   const [carrinho, setCarrinho] = useState([]);
   const [abrirCarrinho, setAbrirCarrinho] = useState(false);
+  const [logadoAdmin, setLogadoAdmin] = useState(false);
+  const [senhaDigitada, setSenhaDigitada] = useState("");
   const [cargo, setCargo] = useState("Membro");
   const senhaAdmin = "1976";
   const [abrirAdmin, setAbrirAdmin] = useState(false);
@@ -109,31 +111,13 @@ ${carrinho
     }}
   >
     <button
-      onClick={(e) => {
-        e.stopPropagation();
-
-        const senha = prompt("Digite a senha admin");
-
-        if (senha === senhaAdmin) {
-          setAbrirAdmin(!abrirAdmin);
-        } else {
-          alert("Senha incorreta");
-        }
-      }}
-      style={{
-        width: "45px",
-        height: "45px",
-        borderRadius: "50%",
-        backgroundColor: "orange",
-        color: "black",
-        border: "none",
-        fontSize: "22px",
-        cursor: "pointer",
-        fontWeight: "bold",
-      }}
-    >
-      ⚙️
-    </button>
+  onClick={(e) => {
+    e.stopPropagation();
+    setAbrirAdmin(true);
+  }}
+>
+  ⚙️
+</button>
 
     <h1
       style={{
@@ -478,14 +462,15 @@ ${carrinho
       left: "50%",
       transform: "translate(-50%, -50%)",
       background: "linear-gradient(180deg, #2b2b2b, #111)",
-      padding: "22px",
+      padding: "25px",
       borderRadius: "22px",
       width: "92vw",
       maxWidth: "360px",
       zIndex: 99999,
       boxSizing: "border-box",
-      boxShadow: "0 0 30px rgba(0,0,0,0.8)",
+      boxShadow: "0 0 30px black",
       border: "1px solid orange",
+      textAlign: "center",
     }}
   >
     <button
@@ -503,83 +488,36 @@ ${carrinho
       X
     </button>
 
-    <h2 style={{ color: "orange", marginTop: 0 }}>
-      ⚙️ Painel Admin
-    </h2>
-
-    <p style={{ color: "#ccc", fontSize: "14px" }}>
-      Gerencie produtos e cargos do sistema.
-    </p>
-
-    <div
-      style={{
-        backgroundColor: "#1c1c1c",
-        padding: "12px",
-        borderRadius: "12px",
-        marginBottom: "15px",
-      }}
-    >
-      <p style={{ margin: 0, color: "white" }}>
-        Cargo atual: <strong style={{ color: "orange" }}>{cargo}</strong>
-      </p>
-    </div>
-
-    <select
-      value={cargo}
-      onChange={(e) => setCargo(e.target.value)}
-      style={{
-        width: "100%",
-        padding: "12px",
-        borderRadius: "10px",
-        border: "none",
-        marginBottom: "10px",
-      }}
-    >
-      <option>Membro</option>
-      <option>Dono</option>
-      <option>Gerente</option>
-      <option>Funcionário</option>
-    </select>
-
-    {cargo !== "Membro" && (
+    {!logadoAdmin ? (
       <>
-        <input
-          placeholder="Nome do produto"
-          style={{
-            width: "100%",
-            padding: "12px",
-            marginTop: "10px",
-            borderRadius: "10px",
-            border: "none",
-            boxSizing: "border-box",
-          }}
-        />
+        <h2 style={{ color: "orange" }}>🔐 Login Admin</h2>
+        <p style={{ color: "#ccc" }}>Digite a senha para acessar o painel.</p>
 
         <input
-          placeholder="Preço"
+          type="password"
+          placeholder="Senha admin"
+          value={senhaDigitada}
+          onChange={(e) => setSenhaDigitada(e.target.value)}
           style={{
             width: "100%",
-            padding: "12px",
-            marginTop: "10px",
-            borderRadius: "10px",
-            border: "none",
-            boxSizing: "border-box",
-          }}
-        />
-
-        <input
-          placeholder="URL da imagem"
-          style={{
-            width: "100%",
-            padding: "12px",
-            marginTop: "10px",
-            borderRadius: "10px",
+            padding: "14px",
+            marginTop: "15px",
+            borderRadius: "12px",
             border: "none",
             boxSizing: "border-box",
           }}
         />
 
         <button
+          onClick={() => {
+            if (senhaDigitada === senhaAdmin) {
+              setLogadoAdmin(true);
+              setCargo("Dono");
+              setSenhaDigitada("");
+            } else {
+              alert("Senha incorreta");
+            }
+          }}
           style={{
             width: "100%",
             padding: "14px",
@@ -592,7 +530,47 @@ ${carrinho
             cursor: "pointer",
           }}
         >
+          Entrar
+        </button>
+      </>
+    ) : (
+      <>
+        <h2 style={{ color: "orange" }}>⚙️ Painel Admin</h2>
+        <p style={{ color: "white" }}>
+          Cargo atual: <strong style={{ color: "orange" }}>{cargo}</strong>
+        </p>
+
+        <input placeholder="Nome do produto" style={{ width: "100%", padding: "12px", marginTop: "10px" }} />
+        <input placeholder="Preço" style={{ width: "100%", padding: "12px", marginTop: "10px" }} />
+        <input placeholder="URL da imagem" style={{ width: "100%", padding: "12px", marginTop: "10px" }} />
+
+        <button
+          style={{
+            width: "100%",
+            padding: "14px",
+            marginTop: "15px",
+            background: "linear-gradient(to right, orange, yellow)",
+            border: "none",
+            borderRadius: "12px",
+            fontWeight: "bold",
+          }}
+        >
           ➕ Adicionar Produto
+        </button>
+
+        <button
+          onClick={() => setLogadoAdmin(false)}
+          style={{
+            width: "100%",
+            padding: "12px",
+            marginTop: "10px",
+            backgroundColor: "red",
+            color: "white",
+            border: "none",
+            borderRadius: "12px",
+          }}
+        >
+          Sair
         </button>
       </>
     )}
