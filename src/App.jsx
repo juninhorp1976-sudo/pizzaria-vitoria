@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function App() {
   const [carrinho, setCarrinho] = useState([]);
   const [abrirCarrinho, setAbrirCarrinho] = useState(false);
+  const senhaAdmin = "123456";
   const [abrirAdmin, setAbrirAdmin] = useState(false);
   const [nomeCliente, setNomeCliente] = useState("");
   const [endereco, setEndereco] = useState("");
@@ -100,7 +101,42 @@ ${carrinho
           alignItems: "center",
         }}
       >
-        <h1>🍕 Império Pizza</h1>
+        <h1>🍕 Império Pizza</h1><div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+  }}
+>
+  <button
+    onClick={(e) => {
+      e.stopPropagation();
+
+      const senha = prompt("Digite a senha admin");
+
+      if (senha === senhaAdmin) {
+        setAbrirAdmin(!abrirAdmin);
+      } else {
+        alert("Senha incorreta");
+      }
+    }}
+    style={{
+      width: "45px",
+      height: "45px",
+      borderRadius: "50%",
+      backgroundColor: "orange",
+      color: "black",
+      border: "none",
+      fontSize: "22px",
+      cursor: "pointer",
+      fontWeight: "bold",
+    }}
+  >
+    ⚙️
+  </button>
+
+  <h1>🍕 Império Pizza</h1>
+</div>
 
         <button
           onClick={(e) => {
@@ -419,30 +455,6 @@ ${carrinho
         </div>
             </section>
 
-            <button
-  onClick={(e) => {
-    e.stopPropagation();
-    setAbrirAdmin(!abrirAdmin);
-  }}
-  style={{
-    position: "fixed",
-    bottom: "20px",
-    left: "20px",
-    width: "55px",
-    height: "55px",
-    borderRadius: "50%",
-    backgroundColor: "orange",
-    color: "black",
-    border: "none",
-    fontSize: "24px",
-    fontWeight: "bold",
-    cursor: "pointer",
-    zIndex: 999999999,
-    boxShadow: "0 0 15px black",
-  }}
->
-  ⚙️
-</button>
 
 
       {abrirAdmin && (
