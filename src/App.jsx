@@ -445,11 +445,12 @@ ${carrinho
                 <button
   onClick={() => {
   adicionarCarrinho(produto);
-  setMensagemCarrinho("✅ Produto adicionado ao carrinho!");
+
+  setMensagemCarrinho("✅ Adicionado ao carrinho");
 
   setTimeout(() => {
     setMensagemCarrinho("");
-  }, 2000);
+  }, 1800);
 }}
   style={{
     width: "100%",
@@ -489,14 +490,18 @@ ${carrinho
   <div
     style={{
       position: "fixed",
-      bottom: "25px",
-      right: "25px",
-      background: "linear-gradient(to right, #16a34a, #22c55e)",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      backgroundColor: "rgba(0,0,0,0.85)",
       color: "white",
-      padding: "15px 20px",
-      borderRadius: "15px",
+      padding: "20px 35px",
+      borderRadius: "18px",
+      fontSize: "20px",
       fontWeight: "bold",
       zIndex: 999999,
+      boxShadow: "0 0 30px rgba(0,0,0,0.6)",
+      animation: "fadeIn 0.3s ease",
     }}
   >
     {mensagemCarrinho}
@@ -548,11 +553,12 @@ ${carrinho
                 <button
                   onClick={() => {
   adicionarCarrinho(bebida);
-  setMensagemCarrinho("✅ Produto adicionado ao carrinho!");
+
+  setMensagemCarrinho("✅ Adicionado ao carrinho");
 
   setTimeout(() => {
     setMensagemCarrinho("");
-  }, 2000);
+  }, 1800);
 }}
                   style={{
                     width: "100%",
