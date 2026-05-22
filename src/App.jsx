@@ -407,85 +407,102 @@ ${carrinho
       </section>
 
       <section style={{ padding: "20px" }}>
-        <h2 style={{ textAlign: "center", color: "yellow" }}>Cardápio</h2>
+  <h2 style={{ textAlign: "center", color: "yellow" }}>
+    Cardápio
+  </h2>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gap: "15px",
-          }}
-        >
-          {produtos.map((produto, index) => (
-            <div
-              key={index}
-              style={{
-                backgroundColor: "#222",
-                borderRadius: "15px",
-                overflow: "hidden",
-              }}
-            >
-              <img
-                src={produto.imagem}
-                alt={produto.nome}
-                style={{
-                  width: "100%",
-                  height: "180px",
-                  objectFit: "cover",
-                }}
-              />
-
-              <div style={{ padding: "15px", textAlign: "center" }}>
-                <h3 style={{ color: "orange" }}>{produto.nome}</h3>
-                <p>{produto.descricao}</p>
-                <strong style={{ color: "yellow" }}>
-                  R$ {produto.preco.toFixed(2)}
-                </strong>
-
-                <button
-  onClick={() => {
-  adicionarCarrinho(produto);
-
-  setMensagemCarrinho("✅ Adicionado ao carrinho");
-
-  setTimeout(() => {
-    setMensagemCarrinho("");
-  }, 1800);
-}}
-  style={{
-    width: "100%",
-    marginTop: "10px",
-    padding: "10px",
-    backgroundColor: "red",
-    color: "white",
-    border: "none",
-    borderRadius: "10px",
-    cursor: "pointer",
-  }}
->
-  Comprar
-</button>
-
-{cargo === "Dono" && (
-  <button
-    onClick={() => {
-      const novosProdutos = produtos.filter((_, i) => i !== index);
-      setProdutos(novosProdutos);
-    }}
+  <div
     style={{
-      width: "100%",
-      marginTop: "8px",
-      padding: "10px",
-      backgroundColor: "black",
-      color: "white",
-      border: "1px solid red",
-      borderRadius: "10px",
-      cursor: "pointer",
+      display: "grid",
+      gridTemplateColumns: "repeat(2, 1fr)",
+      gap: "15px",
     }}
   >
-    🗑️ Remover Produto
-  </button>
-)}
+    {produtos.map((produto, index) => (
+      <div
+        key={index}
+        style={{
+          backgroundColor: "#222",
+          borderRadius: "15px",
+          overflow: "hidden",
+        }}
+      >
+        <img
+          src={produto.imagem}
+          alt={produto.nome}
+          style={{
+            width: "100%",
+            height: "180px",
+            objectFit: "cover",
+          }}
+        />
+
+        <div style={{ padding: "15px", textAlign: "center" }}>
+          <h3 style={{ color: "orange" }}>
+            {produto.nome}
+          </h3>
+
+          <p>{produto.descricao}</p>
+
+          <strong style={{ color: "yellow" }}>
+            R$ {produto.preco.toFixed(2)}
+          </strong>
+
+          <button
+            onClick={() => {
+              adicionarCarrinho(produto);
+
+              setMensagemCarrinho(
+                "✅ Adicionado ao carrinho"
+              );
+
+              setTimeout(() => {
+                setMensagemCarrinho("");
+              }, 1800);
+            }}
+            style={{
+              width: "100%",
+              marginTop: "10px",
+              padding: "10px",
+              backgroundColor: "red",
+              color: "white",
+              border: "none",
+              borderRadius: "10px",
+              cursor: "pointer",
+            }}
+          >
+            Comprar
+          </button>
+
+          {cargo === "Dono" && (
+            <button
+              onClick={() => {
+                const novosProdutos = produtos.filter(
+                  (_, i) => i !== index
+                );
+
+                setProdutos(novosProdutos);
+              }}
+              style={{
+                width: "100%",
+                marginTop: "8px",
+                padding: "10px",
+                backgroundColor: "black",
+                color: "white",
+                border: "1px solid red",
+                borderRadius: "10px",
+                cursor: "pointer",
+              }}
+            >
+              🗑️ Remover Produto
+            </button>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
 {mensagemCarrinho && (
   <div
     style={{
@@ -501,20 +518,15 @@ ${carrinho
       fontWeight: "bold",
       zIndex: 999999,
       boxShadow: "0 0 30px rgba(0,0,0,0.6)",
-      animation: "fadeIn 0.3s ease",
+      
     }}
   >
     {mensagemCarrinho}
   </div>
 )}
-                
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
-      <section style={{ padding: "20px", backgroundColor: "#181818" }}>
+
+        <section style={{ padding: "20px", backgroundColor: "#181818" }}> 
         <h2 style={{ textAlign: "center", color: "cyan" }}>🥤 Bebidas</h2>
 
         <div
