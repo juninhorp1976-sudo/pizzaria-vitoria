@@ -444,13 +444,13 @@ ${carrinho
 
                 <button
   onClick={() => {
-    adicionarCarrinho(produto);
-    setMensagemCarrinho("✅ Produto adicionado ao carrinho!");
+  adicionarCarrinho(produto);
+  setMensagemCarrinho("✅ Produto adicionado ao carrinho!");
 
-setTimeout(() => {
-  setMensagemCarrinho("");
-}, 2000);
-  }}
+  setTimeout(() => {
+    setMensagemCarrinho("");
+  }, 2000);
+}}
   style={{
     width: "100%",
     marginTop: "10px",
@@ -496,7 +496,6 @@ setTimeout(() => {
       padding: "15px 20px",
       borderRadius: "15px",
       fontWeight: "bold",
-      boxShadow: "0 0 20px rgba(0,0,0,0.5)",
       zIndex: 999999,
     }}
   >
@@ -547,7 +546,14 @@ setTimeout(() => {
                 </strong>
 
                 <button
-                  onClick={() => adicionarCarrinho(bebida)}
+                  onClick={() => {
+  adicionarCarrinho(bebida);
+  setMensagemCarrinho("✅ Produto adicionado ao carrinho!");
+
+  setTimeout(() => {
+    setMensagemCarrinho("");
+  }, 2000);
+}}
                   style={{
                     width: "100%",
                     marginTop: "10px",
